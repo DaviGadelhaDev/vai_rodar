@@ -54,7 +54,11 @@
                         </a>
                         <a @class(['nav-link', 'active' => isset($menu) && $menu == 'courses']) class="nav-link" href="{{ route('course.index') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user-graduate"></i></div>
-                            Cursos
+                            Logs
+                        </a>
+                        <a @class(['nav-link', 'active' => isset($menu) && $menu == 'courses']) class="nav-link" href="{{ route('course.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                            Arquivo
                         </a>
                         <a  class="nav-link" href="{{ route('login.destroy') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
