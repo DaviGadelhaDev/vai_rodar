@@ -1,0 +1,9 @@
+.space-between-elements{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bg-nav{
+    background-color: #183181;
+}
