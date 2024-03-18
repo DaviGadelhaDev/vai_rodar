@@ -12,12 +12,9 @@
                                     <h3 class="text-center font-weight-light my-4">Login</h3>
                                 </div>
                                 <div class="card-body">
-
                                     <x-alert />
-
-                                    <form action="{{ route('login.process') }}" method="POST">
+                                    <form action="{{ route('login.store') }}" method="POST">
                                         @csrf
-
                                         <div class="form-floating mb-3">
                                             <input type="email" name="email" class="form-control" id="email"
                                                 placeholder="E-mail de usuário" value="{{ old('email') }}">
@@ -31,14 +28,14 @@
                                         </div>
                                         
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="small text-decoration-none" href="{{ route('forgot-password.show')}}">Esqueceu a senha?</a>
+                                            <a class="small text-decoration-none" href="{{ route('forgot.index') }}">Esqueceu a senha?</a>
                                             <button type="submit" class="btn btn-primary">Acessar</button>
                                         </div>
 
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    <div class="small">Precisa de uma conta? <a href="{{ route('login.create-user') }}" class=" text-decoration-none">Inscrever-se!</a></div>
+                                    <div class="small">Precisa de uma conta? <a href="{{ route('login.create') }}" class=" text-decoration-none">Inscrever-se!</a></div>
                                 </div>
                             </div>
                         </div>

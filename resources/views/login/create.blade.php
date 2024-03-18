@@ -9,15 +9,12 @@
                         <div class="col-lg-7">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Criar Conta</h3>
+                                    <h3 class="text-center font-weight-light my-4">Cadastre-se</h3>
                                 </div>
                                 <div class="card-body">
-
                                     <x-alert />
-
-                                    <form action="{{ route('login.store-user') }}" method="POST">
+                                    <form action="{{ route('login.storeNewUser') }}" method="POST">
                                         @csrf
-
                                         <div class="form-floating mb-3">
                                             <input type="text" name="name" class="form-control" id="name"
                                                 placeholder="Nome completo" value="{{ old('name') }}">

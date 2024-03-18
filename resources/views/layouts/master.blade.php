@@ -29,11 +29,11 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{ route('profile.show') }}"><i class="fa-regular fa-user"></i> Perfil</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-regular fa-user"></i> Perfil</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item"  href="{{ route('login.destroy') }}"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <li><a class="dropdown-item"  href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i>
                             Sair</a></li>
                 </ul>
             </li>
@@ -44,23 +44,23 @@
             <nav class="sb-sidenav accordion sb-sidenav-five" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <a @class(['nav-link', 'active' => isset($menu) && $menu == 'dashboard']) class="nav-link" href="{{ route('dashboard.index') }}">
+                        <a class="nav-link" href="{{ route('dashboard.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a @class(['nav-link', 'active' => isset($menu) && $menu == 'users']) class="nav-link" href="{{ route('user.index') }}">
+                        <a class="nav-link" href="#">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                             Usuários
                         </a>
-                        <a @class(['nav-link', 'active' => isset($menu) && $menu == 'courses']) class="nav-link" href="{{ route('course.index') }}">
+                        <a class="nav-link" href="#">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user-graduate"></i></div>
                             Logs
                         </a>
-                        <a @class(['nav-link', 'active' => isset($menu) && $menu == 'courses']) class="nav-link" href="{{ route('course.index') }}">
+                        <a  class="nav-link" href="#">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user-graduate"></i></div>
                             Arquivo
                         </a>
-                        <a  class="nav-link" href="{{ route('login.destroy') }}">
+                        <a  class="nav-link" href="#">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
                             Sair
                         </a>

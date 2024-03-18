@@ -12,22 +12,17 @@
                                     <h3 class="text-center font-weight-light my-4">Recuperar Senha</h3>
                                 </div>
                                 <div class="card-body">
-
                                     <x-alert />
-
-                                    <form action="{{ route('forgot-password.submit') }}" method="POST">
+                                    <form action="#" method="POST">
                                         @csrf
-
                                         <div class="form-floating mb-3">
                                             <input type="email" name="email" class="form-control" id="email"
                                                 placeholder="Seu e-mail cadastrado" value="{{ old('email') }}">
                                             <label for="email">E-mail</label>
                                         </div>
-
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <button type="submit" class="btn btn-primary" onclick="this.innerText = 'Recuperando...'">Recuperar</button>
                                         </div>
-
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
