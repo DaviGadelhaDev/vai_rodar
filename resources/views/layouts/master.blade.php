@@ -57,7 +57,7 @@
                             Logs
                         </a>
                         <a  class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-file"></i></div>
                             Arquivo
                         </a>
                         <a  class="nav-link" href="#">
