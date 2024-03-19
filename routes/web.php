@@ -23,6 +23,7 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/store', 'store')->name('login.store');
     Route::get('/create', 'create')->name('login.create');
     Route::post('/create', 'storeNewUser')->name('login.storeNewUser');
+    
 });
 
 //Esqueceu senha
@@ -34,4 +35,8 @@ Route::controller(ForgotPasswordController::class)->group(function (){
     Route::post('/reset-password', 'submitResetPassword')->name('resetPassword.submit');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+//
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/destroy', [LoginController::class, 'destroy'])->name('login.destroy');
+});

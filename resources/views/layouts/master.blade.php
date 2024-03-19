@@ -33,7 +33,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item"  href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <li><a class="dropdown-item"  href="{{ route('login.destroy') }}"><i class="fa-solid fa-arrow-right-to-bracket"></i>
                             Sair</a></li>
                 </ul>
             </li>
@@ -60,7 +60,7 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-file"></i></div>
                             Arquivo
                         </a>
-                        <a  class="nav-link" href="#">
+                        <a  class="nav-link" href="{{ route('login.destroy') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
                             Sair
                         </a>
