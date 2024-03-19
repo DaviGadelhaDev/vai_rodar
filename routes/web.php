@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //Login
 Route::controller(LoginController::class)->group(function () {
     Route::get('/', 'index')->name('login.index');
-    Route::post('/', 'store')->name('login.store');
+    Route::post('/store', 'store')->name('login.store');
     Route::get('/create', 'create')->name('login.create');
     Route::post('/create', 'storeNewUser')->name('login.storeNewUser');
 });
@@ -28,6 +28,10 @@ Route::controller(LoginController::class)->group(function () {
 //Esqueceu senha
 Route::controller(ForgotPasswordController::class)->group(function (){
     Route::get('/forgotPassword', 'index')->name('forgot.index');
+    Route::post('/forgotPassword', 'store')->name('forgot.store');
+    Route::post('/', [LoginController::class, 'index'])->name('password.reset');
+    Route::get('/reset-password/{token}', 'showResetPassword')->name('reset-password.show');
+    Route::post('/reset-password', 'submitResetPassword')->name('resetPassword.submit');
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');

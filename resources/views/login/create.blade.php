@@ -26,13 +26,11 @@
                                                 placeholder="E-mail de usuário" value="{{ old('email') }}">
                                             <label for="email">E-mail</label>
                                         </div>
-
                                         <div class="form-floating mb-3">
                                             <input type="password" name="password" class="form-control" id="password"
                                                 placeholder="Senha" value="{{ old('password') }}">
                                             <label for="password">Senha</label>
                                         </div>
-
                                         <div class="mt-4 mb-0">
                                             <div class="d-grid">
                                                 <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>

@@ -9,19 +9,30 @@
                         <div class="col-lg-5">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Recuperar Senha</h3>
+                                    <h3 class="text-center font-weight-light my-4">Nova Senha</h3>
                                 </div>
                                 <div class="card-body">
                                     <x-alert />
-                                    <form action="{{ route('forgot.store') }}" method="POST">
+                                    <form action="{{ route('resetPassword.submit') }}" method="POST">
                                         @csrf
+                                        <input type="hidden" name="token" value="{{ $token }}">
                                         <div class="form-floating mb-3">
                                             <input type="email" name="email" class="form-control" id="email"
                                                 placeholder="Seu e-mail cadastrado" value="{{ old('email') }}">
                                             <label for="email">E-mail</label>
                                         </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" name="password" class="form-control" id="password"
+                                                placeholder="Nova Senha" value="{{ old('password') }}">
+                                            <label for="password">Nova senha</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" name="password_confirmation" class="form-control" id="password_confirmation"
+                                                placeholder="Confirmar nova senha" value="{{ old('password_confirmation') }}">
+                                            <label for="password_confirmation">Confirmar nova senha</label>
+                                        </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <button type="submit" class="btn btn-primary" onclick="this.innerText = 'Aguarde...'">Recuperar</button>
+                                            <button type="submit" class="btn btn-primary" onclick="this.innerText = 'Aguarde...'">Atualizar</button>
                                         </div>
                                     </form>
                                 </div>
