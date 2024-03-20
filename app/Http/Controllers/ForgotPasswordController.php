@@ -16,7 +16,7 @@ class ForgotPasswordController extends Controller
         return view('login.forgotPassword');
     }
 
-    public function store(Request $request)
+    public function storePassword(Request $request)
     {
          $request->validate([
             'email' =>'required|email',
