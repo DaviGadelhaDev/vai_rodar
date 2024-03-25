@@ -9,6 +9,7 @@
                 <li class="breadcrumb-item active">Usuários</li>
             </ol>
         </div>
+
         <div class="card mb-4 border-light shadow">
             <div class="card-header space-between-elements">
                 <span>Listar</span>
@@ -18,7 +19,9 @@
                 </span>
             </div>
             <div class="card-body">
+
                 <x-alert />
+
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -29,21 +32,25 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @forelse ($users as $user)
                             <tr>
                                 <th>{{ $user->id }}</th>
                                 <td>{{ $user->name }}</td>
                                 <td class="d-none d-md-table-cell">{{ $user->email }}</td>
                                 <td class="d-md-flex justify-content-center">
+
                                     <a href="{{ route('user.show', ['user' => $user->id]) }}"
                                         class="btn btn-primary btn-sm me-1 mb-1">
                                         <i class="fa-regular fa-eye"></i> Visualizar
                                     </a>
+
                                     <a href="{{ route('user.edit', ['user' => $user->id]) }}"
                                         class="btn btn-warning btn-sm me-1 mb-1">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a>
-                                    <form method="POST" action="">
+
+                                    <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm me-1 mb-1"
@@ -56,9 +63,12 @@
                         @empty
                             <div class="alert alert-danger" role="alert">Nenhum usuário encontrado!</div>
                         @endforelse
+
                     </tbody>
                 </table>
+
                     {{ $users->onEachSide(0)->links() }}
+
             </div>
         </div>
     </div>

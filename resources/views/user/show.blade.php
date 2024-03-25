@@ -16,10 +16,7 @@
                 <span>Visualizar</span>
                 <span class="d-flex">
                     <a href="{{ route('user.index') }}" class="btn btn-info btn-sm me-1"><i class="fa-solid fa-arrow-left"></i>
-                        Voltar</a>
-
-                    <a href="" class="btn btn-warning btn-sm me-1"><i
-                            class="fa-solid fa-pen-to-square"></i> Editar Senha
+                        Voltar
                     </a>
                 </span>
             </div>
@@ -40,8 +37,14 @@
 
                     <dt class="col-sm-3">Cadastrado: </dt>
                     <dd class="col-sm-9">
-                        {{ Carbon\Carbon::parse($user->created_at)->tz('America/Sao_Paulo')->format('d/m/Y H:i:s') }}
+                        {{ \Carbon\Carbon::parse($user->created_at)->tz('America/Sao_Paulo')->format('d/m/Y H:i:s') }}
                     </dd>
+
+                    <dt class="col-sm-3">Editado: </dt>
+                    <dd class="col-sm-9">
+                        {{ \Carbon\Carbon::parse($user->updated_at)->tz('America/Sao_Paulo')->format('d/m/Y H:i:s') }}
+                    </dd>
+
                 </dl>
             </div>
         </div>

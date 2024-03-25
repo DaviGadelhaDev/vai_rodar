@@ -82,13 +82,12 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|',
         ],
         [
             'name.required' => 'O campo nome é obrigatório',
             'email.required' => 'E-mail é obrigatório',
             'email.email' => 'E-mail inválido',
-            'email.unique' => 'E-mail já existe no sistema',
         ]);
         // Marca o ponto inicial de uma transação
         DB::beginTransaction();
@@ -109,11 +108,42 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function editPassword(User $user)
     {
-        //
+        return view('user.editPassword', ['user' => $user]);
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        $request->validate([
+            'password' => 'required|min:6',
+        ]);
+
+        DB::beginTransaction();
+        try{
+            $user->update([
+                'password' => $request->password,
+            ]);
+
+            Log::info('Senha atualizada', ['user' => $user->id]);
+            DB::commit();
+            return redirect()->route('user.edit', ['user' => $user->id])->with('success', 'Senha atualizada com sucesso!!');
+        }
+        catch(Exception $e){
+            Log::warning('Erro ao atualizar a senha', ['user' => $user->id, 'error' => $e->getMessage()]);
+            return back()->with('error', 'Erro ao atualizar a senha!!');
+        }
+    }
+
+    public function destroy(User $user)
+    {
+       try{
+        $user->delete();
+        Log::info('Usuário excluído com sucesso', ['user' => $user->id]);
+       }
+       catch(Exception $e){
+        Log::warning('Erro ao excluir o usuário', ['error' => $e->getMessage()]);
+        return redirect()->route('user.index')->with('success', 'Usuário excluído com sucesso');
+       }
     }
 }

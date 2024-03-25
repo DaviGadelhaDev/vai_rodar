@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,12 @@ Route::group(['middleware' => 'auth'], function (){
     Route::controller(LoginController::class)->group(function (){
         Route::get('/destroy', 'destroy')->name('login.destroy');
     });
+
+    //Profile
+    Route::controller(ProfileController::class)->group(function (){
+        Route::get('/Profile', 'index')->name('profile.index');
+    });
+
     
     //users
     Route::controller(UserController::class)->group(function (){
@@ -56,6 +63,9 @@ Route::group(['middleware' => 'auth'], function (){
         Route::get('/showUser{user}', 'show')->name('user.show');
         Route::get('/editUser{user}', 'edit')->name('user.edit');
         Route::put('/updateUser{user}', 'update')->name('user.update');
+        Route::get('/editPassword{user}', 'editPassword')->name('user.editPassword');
+        Route::put('/updatePassword{user}', 'updatePassword')->name('user.updatePassword');
+        Route::delete('/destroyUser{user}', 'destroy')->name('user.destroy');
     });
 
 });

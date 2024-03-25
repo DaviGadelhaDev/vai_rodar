@@ -13,37 +13,24 @@
 
         <div class="card mb-4 border-light shadow">
             <div class="card-header space-between-elements">
-                <span>Editar</span>
+                <span>Editar Senha</span>
                 <span class="d-flex">
-
-                    <a href="{{ route('user.index') }}" class="btn btn-info btn-sm me-1"><i class="fa-solid fa-arrow-left"></i>
+                    <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn btn-info btn-sm me-1"><i class="fa-solid fa-arrow-left"></i>
                         Voltar
                     </a>
-
-                    <a href="{{ route('user.editPassword', ['user' => $user->id]) }}" class="btn btn-warning btn-sm me-1"><i
-                        class="fa-solid fa-pen-to-square"></i> Editar Senha
-                    </a>
-
                 </span>
             </div>
             <div class="card-body">
 
                 <x-alert />
 
-                <form action="{{ route('user.update', ['user' => $user->id]) }}" method="POST" class="row g-3">
+                <form action="{{ route('user.updatePassword', ['user' => $user->id]) }}" method="POST" class="row g-3">
                     @csrf
                     @method('PUT')
-
                     <div class="col-12">
-                        <label for="name" class="form-label">Nome: </label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Nome completo"
-                            value="{{ old('name', $user->name) }}">
-                    </div>
-
-                    <div class="col-12">
-                        <label for="email" class="form-label">E-mail: </label>
-                        <input type="email" name="email" id="email" class="form-control"
-                            placeholder="Melhor e-mail do usuário" value="{{ old('email', $user->email) }}">
+                        <label for="password" class="form-label">Senha: </label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Nova senha"
+                            value="{{ old('password') }}">
                     </div>
 
                     <div class="col-12">
