@@ -52,11 +52,7 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                             Usuários
                         </a>
-                        <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
-                            Logs
-                        </a>
-                        <a  class="nav-link" href="#">
+                            <a  class="nav-link" href="#">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-file"></i></div>
                             Arquivo
                         </a>

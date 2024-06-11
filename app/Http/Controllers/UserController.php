@@ -112,8 +112,16 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
-        //
+        try{
+            $user->delete();
+            return redirect()->route('user.index')->with('success', 'Usuário excluido com sucesso');
+
+        }catch(Exception)
+        {
+            DB::rollBack();
+            return redirect()->route('user.index')->with('error', 'Não foi possível excluir este usuário');
+        }
     }
 }

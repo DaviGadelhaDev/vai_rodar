@@ -31,7 +31,7 @@
                     <div class="col-12">
                         <label for="email" class="form-label">E-mail: </label>
                         <input type="email" name="email" id="email" class="form-control"
-                            placeholder="Melhor e-mail do usuário">
+                            placeholder="E-mail">
                     </div>
 
                     <div class="col-12">

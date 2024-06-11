@@ -43,14 +43,12 @@
                                         class="btn btn-warning btn-sm me-1 mb-1">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a>
-                                    <form method="POST" action="">
+                                    <form method="POST" action="{{ route('user.delete', ['user' => $user->id]) }}">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm me-1 mb-1"
-                                            onclick="return confirm('Tem certeza que deseja apagar este registro?')"><i
+                                        <button type="submit" class="btn btn-danger btn-sm me-1 mb-1"><i
                                                 class="fa-regular fa-trash-can"></i> Apagar</button>
                                     </form>
-
                                 </td>
                             </tr>
                         @empty

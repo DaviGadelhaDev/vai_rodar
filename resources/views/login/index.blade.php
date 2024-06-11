@@ -28,7 +28,6 @@
                                         </div>
                                         
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="small text-decoration-none" href="{{ route('forgot.index') }}">Esqueceu a senha?</a>
                                             <button type="submit" class="btn btn-primary">Acessar</button>
                                         </div>
 
