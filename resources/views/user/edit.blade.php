@@ -17,21 +17,27 @@
                 <span class="d-flex">
 
                     <a href="{{ route('user.index') }}" class="btn btn-info btn-sm me-1"><i class="fa-solid fa-arrow-left"></i>
-                        Voltar</a>
+                        Voltar
+                    </a>
 
-                    <a href="" class="btn btn-warning btn-sm me-1"><i
+                    <a href="{{ route('user.editPassword', ['user' => $user->id]) }}" class="btn btn-warning btn-sm me-1"><i
                         class="fa-solid fa-pen-to-square"></i> Editar Senha
                     </a>
+
                 </span>
             </div>
             <div class="card-body">
+
                 <x-alert />
+
                 <form action="{{ route('user.update', ['user' => $user->id]) }}" method="POST" class="row g-3">
                     @csrf
                     @method('PUT')
+
                     <div class="col-12">
                         <label for="name" class="form-label">Nome: </label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Nome completo" value="{{ old('name', $user->name) }}">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Nome completo"
+                            value="{{ old('name', $user->name) }}">
                     </div>
 
                     <div class="col-12">

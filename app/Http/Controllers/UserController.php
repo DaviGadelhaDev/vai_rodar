@@ -82,13 +82,12 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|',
         ],
         [
             'name.required' => 'O campo nome é obrigatório',
             'email.required' => 'E-mail é obrigatório',
             'email.email' => 'E-mail inválido',
-            'email.unique' => 'E-mail já existe no sistema',
         ]);
         // Marca o ponto inicial de uma transação
         DB::beginTransaction();
@@ -109,9 +108,6 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(User $user)
     {
         try{
